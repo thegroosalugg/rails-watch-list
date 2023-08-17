@@ -10,3 +10,27 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.btn {
+  color: #749BC2;
+  font-weight: bolder;
+  text-shadow: 3px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.5s, color 0.5s;
+}
+.btn:hover {
+  background-color: #d8944b;
+  color: #000000;
+  border-color: #d8944b;
+}
+a {
+  border: 5px solid transparent;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-radius: 5px;
+  transition: 0.5s;
+  color: #fff;
+}
+a:hover {
+  background-color: #F6F4EB;
+  color: #4682A9;
+}

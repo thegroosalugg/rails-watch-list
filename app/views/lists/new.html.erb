@@ -1,3 +1,10 @@
 <h1>Lists#new</h1>
 <p>Find me in app/views/lists/new.html.erb</p>
+
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit class: "btn btn-light mt-1" %>
+<% end %>
+
+
 <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3" %>

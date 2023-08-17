@@ -1,2 +1,8 @@
 <h1>Lists#show</h1>
 <p>Find me in app/views/lists/show.html.erb</p>
+
+<%#= button_to "Bookmark", new_list_bookmark_path(@list), class: "btn btn-light mt-3" %>
+
+<%= link_to "Bookmark", new_list_bookmark_path(@list), class: "btn btn-light mt-3" %>
+
+<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3" %>
