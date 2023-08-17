@@ -1,8 +1,19 @@
 <h1>Lists#show</h1>
 <p>Find me in app/views/lists/show.html.erb</p>
 
-<%#= button_to "Bookmark", new_list_bookmark_path(@list), class: "btn btn-light mt-3" %>
+<%= @list.name %>
 
-<%= link_to "Bookmark", new_list_bookmark_path(@list), class: "btn btn-light mt-3" %>
+<div class="lists-container overflow-auto" style="max-height: 300px;">
+  <% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <div class="card shadow my-2 text-shadow-bold" style="border-radius: 10px;">
+      <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px;">
+        <h6 class="my-2"><%= movie.title %></h6>
+         <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-light mt-3", data: {turbo_confirm: "Are you sure?"} %>
+      </div>
+    </div>
+  <% end %>
+</div>
 
+<%= button_to "Bookmark", new_list_bookmark_path(@list), method: :get, class: "btn btn-light mt-3" %>
 <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3" %>

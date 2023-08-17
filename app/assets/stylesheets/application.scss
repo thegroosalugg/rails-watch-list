@@ -11,6 +11,17 @@
 @import "components/index";
 @import "pages/index";
 
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Hide the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent; /* Hide the thumb */
+}
 .btn {
   color: #749BC2;
   font-weight: bolder;
