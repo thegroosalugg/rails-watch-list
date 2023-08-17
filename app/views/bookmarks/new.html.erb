@@ -8,9 +8,9 @@
         <h6 class="my-2"><%= movie.title %></h6>
         <p style="font-size: 12px;"><%= movie.overview %></p>
         <div class="d-flex justify-content-between align-items-center">
-            <p style="font-size: 10px;"><%= movie.poster_url %></p>
-            <p style="font-size: 10x;"><%= movie.rating %></p>
-          </div>
+          <p style="font-size: 10px;"><%= movie.poster_url %></p>
+          <p style="font-size: 10x;"><%= movie.rating %></p>
+        </div>
       </div>
     </div>
     <%= simple_form_for [@list, @bookmark] do |f| %>
@@ -20,7 +20,7 @@
           <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: "form-control" %>
         </div>
         <div class="col-3 d-flex justify-content-end mt-4">
-          <%= f.submit "Add to List", class: "btn btn-light btn-sm" %>
+          <%= f.submit "Add to List", class: "btn btn-light btn-sm", style: "border-radius: 30px;" %>
         </div>
       </div>
     <% end %>
@@ -28,4 +28,4 @@
 </div>
 
 
-<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3" %>
+<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3", style: "border-radius: 30px;" %>

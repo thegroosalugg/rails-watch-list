@@ -3,8 +3,8 @@
 
 <%= simple_form_for(@list) do |f| %>
   <%= f.input :name %>
-  <%= f.submit class: "btn btn-light mt-1" %>
+  <%= f.submit class: "btn btn-light mt-1", style: "border-radius: 30px;" %>
 <% end %>
 
 
-<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3" %>
+<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3", style: "border-radius: 30px;" %>
