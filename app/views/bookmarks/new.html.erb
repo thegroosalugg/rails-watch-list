@@ -15,9 +15,13 @@
     </div>
     <%= simple_form_for [@list, @bookmark] do |f| %>
       <%= f.hidden_field :movie_id, value: movie.id %>
-       <div class="d-flex justify-content-around align-items-center">
-        <%= f.input :comment, placeholder: 'Enter a comment about the movie' %>
-        <%= f.submit "Add to List", class: "btn btn-light btn-sm" %>
+       <div class="d-flex justify-content-around align-items-center" style="min-height: 100px;">
+        <div class="col-9">
+          <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: "form-control" %>
+        </div>
+        <div class="col-3 d-flex justify-content-end mt-4">
+          <%= f.submit "Add to List", class: "btn btn-light btn-sm" %>
+        </div>
       </div>
     <% end %>
   <% end %>
