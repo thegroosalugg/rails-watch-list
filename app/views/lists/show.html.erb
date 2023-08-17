@@ -9,15 +9,30 @@
     <div class="card shadow my-3" style="border-radius: 10px;">
       <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
         <h6 class="my-2"><%= movie.title %></h6>
-          <p style="font-size: 12px; margin-bottom: 3px; text-align: justify;"><%= movie.overview %></p>
-          <p style="font-size: 12px; text-align: justify;"><%= bookmark.comment %></p>
-          <p style="font-size: 10x;"><%= movie.rating %></p>
-          <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat mb-3", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
-          <p style="font-size: 10px;"><%= movie.poster_url %></p>
+
+        <!-- Movie Overview Card -->
+        <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
+          <div class="card-body py-1" style="color: #4682A9;">
+            <p style="font-size: 12px; margin-bottom: 3px; text-align: justify;"><%= movie.overview %></p>
+          </div>
+        </div>
+
+        <!-- Bookmark Comment Card -->
+        <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
+          <div class="card-body py-1" style="color: #4682A9;">
+            <p style="font-size: 12px; text-align: justify;"><%= bookmark.comment %></p>
+          </div>
+        </div>
+
+        <p style="font-size: 14px; margin: 3px;"><%= movie.rating %></p>
+
+        <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat mb-2", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
+        <p style="font-size: 10px;"><%= movie.poster_url %></p>
       </div>
     </div>
   <% end %>
 </div>
+
 
 <%= button_to "Bookmark", new_list_bookmark_path(@list), method: :get, class: "btn btn-light m-3", style: "border-radius: 30px;" %>
 <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3", style: "border-radius: 30px;" %>
