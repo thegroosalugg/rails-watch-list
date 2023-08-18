@@ -4,8 +4,8 @@ class ListsController < ApplicationController
   end
 
   def show
+    # @movies = @list.movies
     @list = List.find(params[:id])
-    @movies = @list.movies
     @allmovies = Movie.all
     @bookmark = Bookmark.new
   end
