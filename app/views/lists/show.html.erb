@@ -3,8 +3,8 @@
 
 <%= @list.name %>
 
-<div class="d-flex flex-wrap justify-content-between align-items-center">
-  <div class="lists-container overflow-auto col-6" style="max-height: 300px; max-width: 400px">
+<div class="d-flex flex-wrap justify-content-around align-items-center my-3">
+  <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px">
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
       <div class="card shadow my-3" style="border-radius: 10px;">
@@ -27,26 +27,28 @@
 
           <p style="font-size: 14px; margin: 3px;"><%= movie.rating %></p>
 
-          <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat mb-2", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
+          <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm mb-2", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
           <p style="font-size: 10px;"><%= movie.poster_url %></p>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="movies-container overflow-auto col-6" style="max-height: 300px; max-width: 400px;">
-    <% @movies.each do |movie| %>
+  <div class="movies-container overflow-auto col-5" style="max-height: 300px; max-width: 400px;">
+    <% @allmovies.each do |movie| %>
       <div class="card shadow my-3" style="border-radius: 10px;">
         <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
           <h6 class="my-2"><%= movie.title %></h6>
           <p style="font-size: 12px;"><%= movie.overview %></p>
           <div class="d-flex justify-content-between align-items-center">
             <p style="font-size: 10px;"><%= movie.poster_url %></p>
-            <p style="font-size: 10x;"><%= movie.rating %></p>
+            <p style="font-size: 14px;"><%= movie.rating %></p>
           </div>
           <%= simple_form_for [@list, @bookmark] do |f| %>
             <%= f.hidden_field :movie_id, value: movie.id %>
-            <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: "form-control", input_html: { style: "font-size: 12px;" } %>
+            <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: "form-control",
+                      label_html: { style: "font-size: 12px;" },
+                      input_html: { style: "font-size: 12px;" } %>
             <%= f.submit "Add to List", class: "btn btn-light btn-sm mb-2" %>
           <% end %>
         </div>
