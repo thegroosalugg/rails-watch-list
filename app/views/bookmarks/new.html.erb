@@ -20,7 +20,7 @@
           <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: "form-control" %>
         </div>
         <div class="col-3 d-flex justify-content-end mt-4">
-          <%= f.submit "Add to List", class: "btn btn-light btn-sm", style: "border-radius: 30px;" %>
+          <%= f.submit "Add to List", class: "btn btn-light btn-sm" %>
         </div>
       </div>
     <% end %>
@@ -28,4 +28,4 @@
 </div>
 
 
-<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3", style: "border-radius: 30px;" %>
+<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3" %>
