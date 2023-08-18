@@ -52,7 +52,7 @@
           <h6 class="my-2"><%= movie.title %></h6>
           <p style="font-size: 12px;"><%= movie.overview %></p>
           <div class="d-flex justify-content-between align-items-center">
-            <p style="font-size: 10px;"><%= movie.poster_url %></p>
+            <p style="font-size: 10px;"><%= image_tag movie.poster_url %></p>
             <p style="font-size: 14px;"><%= movie.rating %></p>
           </div>
           <%= simple_form_for [@list, @bookmark] do |f| %>
