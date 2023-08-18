@@ -10,5 +10,7 @@
     </div>
   <% end %>
 </div>
-
-<%= button_to "New list", new_list_path, method: :get, class: "btn btn-light mt-3" %>
+<%= simple_form_for(@list) do |f| %>
+  <%= f.input :name %>
+  <%= f.submit class: "btn btn-light mt-1" %>
+<% end %>

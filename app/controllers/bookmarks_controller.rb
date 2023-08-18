@@ -1,11 +1,5 @@
 # piss off rubocop
 class BookmarksController < ApplicationController
-  # def new
-  #   @bookmark = Bookmark.new
-  #   @movies = Movie.all
-  #   @list = List.find(params[:list_id])
-  # end
-
   def create
     @list = List.find(params[:list_id])
     @allmovies = Movie.all
