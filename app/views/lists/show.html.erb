@@ -5,10 +5,12 @@
 
 <% if @list.movies.empty? %>
   <div class="d-flex flex-wrap justify-content-center align-items-center my-3">
+  <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px">
 <% else %>
   <div class="d-flex flex-wrap justify-content-around align-items-center my-3">
-<% end %>
   <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px">
+  <h6>My Bookmarks</h6>
+<% end %>
     <% @list.movies.each do |movie| %>
       <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
       <div class="card shadow my-3" style="border-radius: 10px;">
@@ -43,6 +45,7 @@
   <% else %>
   <div class="movies-container overflow-auto col-5" style="max-height: 300px; max-width: 400px;">
   <% end %>
+  <h6>Look through movies</h6>
     <% @allmovies.each do |movie| %>
       <div class="card shadow my-3" style="border-radius: 10px;">
         <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
