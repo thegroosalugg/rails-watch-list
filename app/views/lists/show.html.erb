@@ -3,38 +3,49 @@
 
 <%= @list.name %>
 
-<div class="d-flex flex-wrap justify-content-around align-items-center my-3">
-  <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px">
-    <% @list.movies.each do |movie| %>
-      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-      <div class="card shadow my-3" style="border-radius: 10px;">
-        <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
-          <h6 class="my-2"><%= movie.title %></h6>
+<% if @list.movies.empty? %>
+  <div class="d-flex flex-wrap justify-content-center align-items-center my-3">
+<% else %>
+  <div class="d-flex flex-wrap justify-content-around align-items-center my-3">
+<% end %>
+<%# <div class="d-flex flex-wrap justify-content-around align-items-center my-3"> %>
 
-          <!-- Movie Overview Card -->
-          <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
-            <div class="card-body py-1" style="color: #4682A9;">
-              <p style="font-size: 12px; margin-bottom: 3px; text-align: justify;"><%= movie.overview %></p>
+    <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px">
+      <% @list.movies.each do |movie| %>
+        <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+        <div class="card shadow my-3" style="border-radius: 10px;">
+          <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
+            <h6 class="my-2"><%= movie.title %></h6>
+
+            <!-- Movie Overview Card -->
+            <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
+              <div class="card-body py-1" style="color: #4682A9;">
+                <p style="font-size: 12px; margin-bottom: 3px; text-align: justify;"><%= movie.overview %></p>
+              </div>
             </div>
-          </div>
 
-          <!-- Bookmark Comment Card -->
-          <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
-            <div class="card-body py-1" style="color: #4682A9;">
-              <p style="font-size: 12px; text-align: justify;"><%= bookmark.comment %></p>
+            <!-- Bookmark Comment Card -->
+            <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
+              <div class="card-body py-1" style="color: #4682A9;">
+                <p style="font-size: 12px; text-align: justify;"><%= bookmark.comment %></p>
+              </div>
             </div>
+
+            <p style="font-size: 14px; margin: 3px;"><%= movie.rating %></p>
+
+            <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm mb-2", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
+            <p style="font-size: 10px;"><%= movie.poster_url %></p>
           </div>
-
-          <p style="font-size: 14px; margin: 3px;"><%= movie.rating %></p>
-
-          <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm mb-2", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
-          <p style="font-size: 10px;"><%= movie.poster_url %></p>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+
   </div>
 
+  <% if @list.movies.empty? %>
+  <div class="movies-container overflow-auto" style="max-height: 300px; max-width: 400px;">
+  <% else %>
   <div class="movies-container overflow-auto col-5" style="max-height: 300px; max-width: 400px;">
+  <% end %>
     <% @allmovies.each do |movie| %>
       <div class="card shadow my-3" style="border-radius: 10px;">
         <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
