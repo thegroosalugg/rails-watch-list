@@ -34,7 +34,7 @@
           <p style="font-size: 14px; margin: 3px;"><%= movie.rating %></p>
 
           <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm mb-2", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
-          <p style="font-size: 10px;"><%= movie.poster_url %></p>
+          <p style="font-size: 10px;"><%= image_tag movie.poster_url %></p>
         </div>
       </div>
     <% end %>
