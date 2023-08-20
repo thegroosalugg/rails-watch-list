@@ -28,7 +28,6 @@ require 'json'
 #   "https://image.tmdb.org/t/p/w200/xJWPZIYOEFIjZpBL7SVBGnzRYXp.jpg"
 # ]
 
-
 puts "Getting rid of all the stuff"
 List.destroy_all
 Movie.destroy_all
@@ -41,8 +40,8 @@ Movie.destroy_all
 movies["results"].each do | movie |
   poster_url = movie["poster_path"]
   new_movie = Movie.new(
-    title: Faker::Movie.title,
-    overview: Faker::Games::Witcher.quote,
+    title: movie["original_title"],
+    overview: movie["overview"],
     poster_url: "https://image.tmdb.org/t/p/original#{poster_url}",
     rating: rand(0.1..10.0).round(1)
   )
