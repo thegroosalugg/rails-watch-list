@@ -1,7 +1,7 @@
-<h1>Lists#show</h1>
+<h1><%= @list.name %></h1>
 <p>Find me in app/views/lists/show.html.erb</p>
 
-<%= @list.name %>
+
 
 <% if @list.movies.empty? %>
   <div class="d-flex flex-wrap justify-content-center my-3">
@@ -15,7 +15,7 @@
       <% @list.movies.each do |movie| %>
         <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
         <div class="mb-3" style="background-color: #F6F4EB; border-radius: 10px;">
-          <div class="d-flex align-items-start" style="background-color: #F6F4EB; border-radius: 10px 10px 0 0; color: #222;">
+          <div class="d-flex align-items-start" style="background-color: #222; border-radius: 10px 10px 0 0; color: #FFF;">
             <%= image_tag movie.poster_url %>
             <div class="d-flex flex-column justify-content-center" style="width: 100%;">
               <div class="d-flex justify-content-center align-items-center">
@@ -29,7 +29,7 @@
           </div>
 
 
-          <div class="overflow-auto flex-column d-flex justify-content-center px-3 border" style="max-height: 80px; background-color: #F5F5F5; color: #222;">
+          <div class="overflow-auto flex-column d-flex justify-content-center px-3 border" style="max-height: 80px; background-color: #EFF5F5; color: #222;">
             <p class="p-1 my-1 text-center" style="font-size: 12px;"><%= bookmark.comment %></p>
           </div>
 
