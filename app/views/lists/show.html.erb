@@ -2,8 +2,8 @@
 
 <% if @list.movies.empty? %>
   <div class="d-flex flex-column">
-  <div class="d-flex flex-wrap justify-content-center my-3">
-    <div class="lists-container overflow-auto" style="max-height: 300px; max-width: 400px;">
+    <div class="d-flex flex-wrap justify-content-center my-3">
+      <div class="lists-container overflow-auto" style="max-height: 300px; max-width: 400px;">
 <% else %>
   <div class="d-flex flex-wrap justify-content-between my-3">
     <div class="d-flex flex-column">
@@ -68,9 +68,7 @@
           </div>
         <% end %>
       </div> <!-- Close the second "if" div's container -->
-
-      <div class="d-flex justify-content-center mt-3">
-      </div>
     </div>
   </div> <!-- Close the main container div -->
-        <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light" %>
+
+  <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light", style: "margin-top: 14px;" %>
