@@ -1,6 +1,7 @@
 <h1><%= @list.name %></h1>
 
 <% if @list.movies.empty? %>
+  <div class="d-flex flex-column">
   <div class="d-flex flex-wrap justify-content-center my-3">
     <div class="lists-container overflow-auto" style="max-height: 300px; max-width: 400px;">
 <% else %>
@@ -69,7 +70,7 @@
       </div> <!-- Close the second "if" div's container -->
 
       <div class="d-flex justify-content-center mt-3">
-        <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light" %>
       </div>
     </div>
   </div> <!-- Close the main container div -->
+        <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light" %>
