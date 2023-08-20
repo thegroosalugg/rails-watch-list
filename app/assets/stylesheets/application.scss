@@ -48,5 +48,7 @@ a:hover {
 }
 img {
   width: 90px;
-  height: 145px;
+  height: auto;
+  // flex-grow: 0;
+  // flex-shrink: 0;
 }
