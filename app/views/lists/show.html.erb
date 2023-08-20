@@ -2,11 +2,12 @@
 
 <% if @list.movies.empty? %>
   <div class="d-flex flex-wrap justify-content-center my-3">
-    <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px;">
+    <div class="lists-container overflow-auto" style="max-height: 300px; max-width: 400px;">
 <% else %>
   <div class="d-flex flex-wrap justify-content-between my-3">
-    <div class="lists-container overflow-auto col-6" style="max-height: 300px; width: 400px; margin-right: 50px;">
+    <div class="d-flex flex-column">
       <h6>My Bookmarks</h6>
+        <div class="lists-container overflow-auto" style="max-height: 300px; width: 400px; margin-right: 50px;">
 <% end %>
 
       <% @list.movies.each do |movie| %>
@@ -35,15 +36,14 @@
         </div>
       <% end %>
     </div>
+    </div>
 
 
-    <% if @list.movies.empty? %>
-      <div class="movies-container overflow-auto" style="max-height: 300px; width: 400px;">
-    <% else %>
-      <div class="movies-container overflow-auto col-6" style="max-height: 300px; width: 400px;">
-    <% end %>
 
-      <h6>Look through movies</h6>
+        <div class="d-flex flex-column">
+          <h6>Look through movies</h6>
+          <div class="movies-container overflow-auto" style="max-height: 300px; width: 400px;">
+
       <% @allmovies.each do |movie| %>
         <div class="border mb-3" style="background-color: #F6F4EB; border-radius: 10px; color: black;">
           <div class="d-flex align-items-start" style="background-color: #222; border-radius: 10px 10px 0 0; color: #FFF;">
@@ -70,6 +70,8 @@
         </div>
       <% end %>
     </div> <!-- Close the second "if" div's container -->
+  <div class="d-flex justify-content-center mt-3">
+    <%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light" %>
+  </div>
+    </div>
   </div> <!-- Close the main container div -->
-
-<%= button_to "Go Back", lists_path, method: :get, class: "btn btn-light mt-3" %>
