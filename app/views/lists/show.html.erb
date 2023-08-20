@@ -49,18 +49,20 @@
     <% @allmovies.each do |movie| %>
       <div class="card shadow my-3" style="border-radius: 10px;">
         <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
-          <h6 class="my-2"><%= movie.title %></h6>
-          <p style="font-size: 12px;"><%= movie.overview %></p>
+         <div class="d-flex justify-content-between align-items-center">
+          <h6><%= movie.title %></h6>
+          <p style="font-size: 12px;"><%= movie.rating %></p>
+          </div>
           <div class="d-flex justify-content-between align-items-center">
             <p style="font-size: 10px;"><%= image_tag movie.poster_url %></p>
-            <p style="font-size: 14px;"><%= movie.rating %></p>
+            <p style="font-size: 14px;"><%= movie.overview %></p>
           </div>
           <%= simple_form_for [@list, @bookmark] do |f| %>
             <%= f.hidden_field :movie_id, value: movie.id %>
             <%= f.input :comment, placeholder: 'Enter a comment about the movie', class: "form-control",
                       label_html: { style: "font-size: 12px;" },
                       input_html: { style: "font-size: 12px;" } %>
-            <%= f.submit "Add to List", class: "btn btn-light btn-sm mb-2" %>
+            <%= f.submit "Add to List", class: "btn btn-flat btn-sm mb-2" %>
           <% end %>
         </div>
       </div>
