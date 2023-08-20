@@ -4,47 +4,46 @@
 <%= @list.name %>
 
 <% if @list.movies.empty? %>
-  <div class="d-flex flex-wrap justify-content-center align-items-center my-3">
+  <div class="d-flex flex-wrap justify-content-center my-3">
     <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px">
 <% else %>
-  <div class="d-flex flex-wrap justify-content-around align-items-center my-3">
-    <div class="lists-container overflow-auto col-5" style="max-height: 300px; max-width: 400px">
+  <div class="d-flex flex-wrap justify-content-between my-3">
+    <div class="lists-container overflow-auto col-6" style="max-height: 300px; width: 400px">
       <h6>My Bookmarks</h6>
 <% end %>
 
       <% @list.movies.each do |movie| %>
         <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-        <div class="card shadow my-3" style="border-radius: 10px;">
-          <div class="card-body py-1" style="background-color: #4682A9; border-radius: 10px; color: white;">
-            <h6 class="my-2"><%= movie.title %></h6>
-
-            <!-- Movie Overview Card -->
-            <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
-              <div class="card-body py-1" style="color: #4682A9;">
-                <p style="font-size: 12px; margin-bottom: 3px; text-align: justify;"><%= movie.overview %></p>
+        <div class="mb-3" style="background-color: #F6F4EB; border-radius: 10px;">
+          <div class="d-flex align-items-start" style="background-color: #F6F4EB; border-radius: 10px 10px 0 0; color: #222;">
+            <%= image_tag movie.poster_url %>
+            <div class="d-flex flex-column justify-content-center" style="width: 100%;">
+              <div class="d-flex justify-content-center align-items-center">
+                <h6 class="col-9" style="font-size: 14px;"><%= movie.title %></h6>
+                <p class="col-2 d-flex flex-column align-items-end mt-1" style="font-size: 12px;"><%= movie.rating %><i class="fas fa-star star-yellow"></i></p>
+              </div>
+              <div class="overflow-auto d-flex justify-content-center" style="max-height: 80px;">
+                <p class="p-3 my-1 text-center" style="font-size: 12px;"><%= movie.overview %></p>
               </div>
             </div>
-
-            <!-- Bookmark Comment Card -->
-            <div class="card" style="background-color: white; border-radius: 10px; margin-bottom: 10px;">
-              <div class="card-body py-1" style="color: #4682A9;">
-                <p style="font-size: 12px; text-align: justify;"><%= bookmark.comment %></p>
-              </div>
-            </div>
-
-            <p style="font-size: 14px; margin: 3px;"><%= movie.rating %></p>
-
-            <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm mb-2", data: { turbo_confirm: "Are you sure?" }, style: "border-radius: 30px;" %>
-            <p style="font-size: 10px;"><%= image_tag movie.poster_url %></p>
           </div>
+
+
+          <div class="overflow-auto flex-column d-flex justify-content-center px-3 border" style="max-height: 80px; background-color: #F5F5F5; color: #222;">
+            <p class="p-1 my-1 text-center" style="font-size: 12px;"><%= bookmark.comment %></p>
+          </div>
+
+          <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm", data: { turbo_confirm: "Are you sure?" } , style: "margin-top: 4px;margin-bottom: 4px;" %>
+
         </div>
       <% end %>
-    </div> <!-- Close the second "if" div's container -->
+    </div>
+
 
     <% if @list.movies.empty? %>
       <div class="movies-container overflow-auto" style="max-height: 300px; width: 400px;">
     <% else %>
-      <div class="movies-container overflow-auto col-5" style="max-height: 300px; width: 400px;">
+      <div class="movies-container overflow-auto col-6" style="max-height: 300px; width: 400px;">
     <% end %>
 
       <h6>Look through movies</h6>
