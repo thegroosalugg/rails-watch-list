@@ -10,24 +10,6 @@ require 'pry-byebug'
 require 'open-uri'
 require 'json'
 
-# image_urls = [
-#   "https://image.tmdb.org/t/p/w200/2CAL2433ZeIihfX1Hb2139CX0pW.jpg",
-#   "https://image.tmdb.org/t/p/w200/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg",
-#   "https://image.tmdb.org/t/p/w200/9O7gLzmreU0nGkIB6K3BsJbzvNv.jpg",
-#   "https://image.tmdb.org/t/p/w200/6ELJEzQJ3Y45HczvreC3dg0GV5R.jpg",
-#   "https://image.tmdb.org/t/p/w200/6VmFqApQRyZZzmiGOQq2C92jyvH.jpg",
-#   "https://image.tmdb.org/t/p/w200/ld7oB9vDW1pj4APN2ZD5JRKaisw.jpg",
-#   "https://image.tmdb.org/t/p/w200/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg",
-#   "https://image.tmdb.org/t/p/w200/lNkDYKmrVem1J0aAfCnQlJOCKnT.jpg",
-#   "https://image.tmdb.org/t/p/w200/wrFpXMNBRj2PBiN4Z5kix51XaIZ.jpg",
-#   "https://image.tmdb.org/t/p/w200/zGVbrulkupqpbwgiNedkJPyQum4.jpg",
-#   "https://image.tmdb.org/t/p/w200/y6y6Ohh33kV0vJ7kx1soe6R1fa0.jpg",
-#   "https://image.tmdb.org/t/p/w200/RYMX2wcKCBAr24UyPD7xwmjaTn.jpg",
-#   "https://image.tmdb.org/t/p/w200/kBKKi4FJ2k7X0Lfx9udZm14WcR.jpg",
-#   "https://image.tmdb.org/t/p/w200/9jPa6zaNlAop9GGa1B7PzDlxbAw.jpg",
-#   "https://image.tmdb.org/t/p/w200/xJWPZIYOEFIjZpBL7SVBGnzRYXp.jpg"
-# ]
-
 puts "Getting rid of all the stuff"
 List.destroy_all
 Movie.destroy_all
