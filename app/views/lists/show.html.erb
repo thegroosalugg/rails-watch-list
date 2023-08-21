@@ -32,7 +32,7 @@
               <p class="p-1 my-1 text-center" style="font-size: 12px;"><%= bookmark.comment %></p>
             </div>
 
-            <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm", data: { turbo_confirm: "Are you sure?" } , style: "margin-top: 4px;margin-bottom: 4px;" %>
+            <%= button_to "Delete", bookmark_path(bookmark), method: :delete, class: "btn btn-flat btn-sm", data: { turbo_confirm: "Are you sure?" } , style: "margin-top: 4px; margin-bottom: 4px;" %>
 
           </div>
         <% end %>
